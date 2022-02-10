@@ -1,0 +1,40 @@
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    margin: 1.8rem auto;
+    background-color: white;
+    width: 20rem;
+}
+
+.task-item-description {
+    display: flex;
+    color: rgba(0, 0, 0, 0.692);
+    flex-direction: column;
+
+}
+.task-item-checkbox-button input[type="checkbox"]{
+    width: 1.7rem;
+    height: 1.7rem;
+    background-color: white;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 0.25rem solid #EBECEF;
+    appearance: none;
+    /* -webkit-appearance: none; */
+    /* outline: none; */
+    cursor: pointer;
+}
+.task-item-checkbox-button input[type="checkbox"]:hover {
+    border-color: #71cfa68a;
+
+}
+.task-item-checkbox-button input[type="checkbox"]:checked {
+    /* background-color: white; */
+    border-color: #71e0b0;
+    /* background-image: url('../../circle2.png'); */
+    
+}
+
+      

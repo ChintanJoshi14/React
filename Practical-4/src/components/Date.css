@@ -1,0 +1,41 @@
+.date-component {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    margin: 1.8rem auto;
+    background-color: white;
+    width: 20rem;
+}
+
+.demo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.day-in-digit {
+    margin: 0px 5px 0px 0px;
+    font-size: 50px;
+    color: #787986;
+    font-weight: 500;
+}
+
+.month-and-year {
+    /* padding-top: 5px; */
+    color: #787986;
+}
+
+.day-month-year {
+    color: #7B7C88;
+    font-weight: bolder;
+}
+
+
+    .day-in-words {
+    display: flex;
+    color: #787986;
+    /* background-color: hotpink; */
+    /* font-size: 50px; */
+    font-weight: bolder;
+    }
