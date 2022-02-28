@@ -1,0 +1,61 @@
+.user-list-wrapper-component {
+    background-color: white;
+    width: 100%;
+    max-width: 70rem ;
+    margin: 1rem 0rem 1rem 1rem;
+    /* display: flex;
+    float: left; */
+    /* flex-direction: row; */
+}
+
+span {
+    display: inline-block;
+    width: 300px;
+    /* background-color: red; */
+    margin: 0px 8px;
+}
+
+/* .header-wrapper {
+    margin: 100px 0px 0px 0px;
+} */
+
+.name-layout {
+    /* width: ; */
+    color: #1d1313ce;
+    font-weight: bold;
+    margin-left: 9.5rem;
+    margin-bottom: 10px;
+}
+.status-margin {
+    color: #1d1313ce;
+    font-weight: bold;
+    margin-left: 2rem;
+    width: 233px;
+    margin-bottom: 10px;
+
+}
+.access {
+    color: #1d1313ce;
+    font-weight: bold;
+    margin-bottom: 10px;
+
+}
+
+.pagination-layout ul{
+    /* margin-left: auto;  */
+    /* margin-right: auto;  */
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.user-card {
+    position: absolute;
+    left: 75%;
+    /* margin-top: 0px; */
+}
+
+.flex-design {
+    display: flex;
+    justify-content: space-around;
+    /* gap: 0px; */
+}

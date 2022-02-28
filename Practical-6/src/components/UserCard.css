@@ -1,0 +1,109 @@
+.user-card-layout {
+  width: 300px;
+  height: 550px;
+  border-radius: 40px;
+  margin: 2rem 0rem;
+  background-color: white;
+  box-shadow: 0px 6px 15px rgba(160, 155, 155, 0.678);
+}
+
+.image-layout {
+  display: flex;
+  justify-content: center;
+  padding: 32px 0px 5px 0px;
+}
+
+.image-layout img {
+  border-radius: 50%;
+
+}
+
+.text-content {
+  margin: 0.8rem auto;
+}
+
+.user-name,
+.user-email,
+.plan {
+  color: #1d1313ce;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 8px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.user-email {
+  color: #7a7a7a;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 8px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn button {
+  margin: 5px 0px;
+  width: 200px;
+  height: 45px;
+  font-size: 16px;
+  color: white;
+  font-weight: bolder;
+  background-color: #feb24b;
+  border: none;
+  border-radius: 5px;
+}
+
+.progress-bar-layout {
+  color: #1d1313ce;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 25px 0px 0px 35px;
+  justify-content: left;
+  align-items: center;
+}
+.progress-bar-1 {
+  margin: 10px 0px 30px 0px;
+  background-color: #feb24b;
+  height: 6px;
+  width: 140px;
+  border-radius: 12px;
+}
+.progress-bar-2 {
+  margin: 10px 0px 30px 0px;
+  background-color: #feb34b34;
+  height: 6px;
+  width: 250px;
+  border-radius: 12px;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 15px 0px;
+}
+
+.line {
+  height: 50px;
+  width: 2px;
+  background-color: rgba(128, 128, 128, 0.226);
+}
+.left,
+.right {
+  font-size: 30px;
+  font-weight: bolder;
+}
+.left-sub,
+.right-sub {
+  color: grey;
+  font-size: 14px;
+  font-weight: bold;
+}
