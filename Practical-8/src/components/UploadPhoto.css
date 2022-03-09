@@ -1,0 +1,11 @@
+.upload-button-layout label{
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px;
+    cursor: pointer;
+}
+
+/* .upload-button-layout:hover {
+    background-color: rgba(226, 224, 224, 0.568);
+    bo
+} */
