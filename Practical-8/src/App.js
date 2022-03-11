@@ -1,13 +1,17 @@
 import './App.css';
 import InputForm from './components/InputForm';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <InputForm />
-     
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+        <InputForm />
+       
+      </div>
+    );
+
+  }
 }
 
 export default App;
