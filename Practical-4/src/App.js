@@ -1,33 +1,48 @@
 import './App.css';
 import ToDo from './components/ToDo';
+import React, { useState } from 'react';
+
+
+const DUMMY_TASKS = [
+  {
+    id:1,
+    description: "Buy new sweatshirt",
+  },
+  {
+    id:2,
+    description: "Begin promotional phase"
+  },
+  {
+    id:3,
+    description: "Read a article"
+  },
+  {
+    id:4,
+    description: "Try not to fall asleep"
+  },
+  {
+    id:5,
+    description: "Watch 'Sherlock'"
+  }
+];
 
 function App() {
-  const tasks = [
-    {
-      description: "Buy new sweatshirt"
-    },
-    {
-      description: "Begin promotional phase"
-    },
-    {
-      description: "Read a article"
-    },
-    {
-      description: "Try not to fall asleep"
-    },
-    {
-      description: "Watch 'Sherlock'"
-    },
-    {
-      description: "Begin QA for the product"
-    },
-    {
-      description: "Go for a walk"
-    },
-  ];
+
+  const [tasks, setTasks] = useState(DUMMY_TASKS);
+  
+
+  function addTaskHandler(task) {
+    setTasks((prevTask) => {
+      return [task, ...prevTask];
+
+    })
+
+  }
+
+
   return (
     <div className="App">
-      <ToDo items={tasks}/>
+      <ToDo items={tasks} onAddTask={addTaskHandler} />
     </div>
   );
 }

@@ -5,3 +5,19 @@
     width: 25rem;
     box-shadow: 0px 0px 4px gray;
 }
+.button-layout-in-todo {
+    margin: 1rem auto -50px auto;
+    
+}
+.button-layout-in-todo button{
+    background-color: #52E4A6;
+    border: none;
+    font-size: 40px;
+    color: #63636350;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 100%;
+    max-width: 82px;
+    padding: 1rem;
+
+}

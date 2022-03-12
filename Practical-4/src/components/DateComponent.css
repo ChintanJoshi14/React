@@ -1,4 +1,4 @@
-.date-component {
+.date-components {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -24,6 +24,7 @@
 .month-and-year {
     /* padding-top: 5px; */
     color: #787986;
+    text-align: left;
 }
 
 .day-month-year {
