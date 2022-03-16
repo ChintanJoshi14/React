@@ -5,17 +5,26 @@ import {Input} from 'antd';
 
 
 class TextField extends React.Component {
-    
+    constructor(props) {
+        super(props)
+        this.state= {
+            name: [this.props.name]
 
-    // const [field, meta] = useField(props);
+        }
+        //to check if data is coming from the parent component:
+        console.log(this.state.name);
+    }
+    
 render() {
-    const {field} = this.props.name;
-    // console.log(this.props);
+    const {name} = this.state;
     return(
         <div className='textfield-layout'>
-            <label htmlFor={this.props.name}>{this.props.label}</label>
-            <br/><Input {...this.props.name === 'password' || this.props.name === 'confirmPassword' ? 'typePass' : 'typeText'} {...this.props.field} {...this.props.label}></Input><br/>
-            <ErrorMessage name={this.props.name} />
+            <label htmlFor={this.state.name}>{this.props.label}</label>
+            <br/><Input {...this.state.name === 'password' || this.state.name === 'confirmPassword' ? 'typePass' : 'typeText'} 
+            {...this.props.field} 
+            {...this.state.label}>
+                </Input><br/>
+            <ErrorMessage name={this.state.name}/>
         </div>
     );
 }
