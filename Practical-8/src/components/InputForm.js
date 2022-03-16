@@ -1,8 +1,7 @@
 import React from "react";
 import style from "./InputForm.module.css";
 import signup from "../images/signup.png";
-import UploadPhoto from "./UploadPhoto";
-import { Formik, Form, Field, ErrorMessage, KErrorMessage } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { connect } from "react-redux";
 
@@ -71,14 +70,14 @@ class InputForm extends React.Component {
         validationSchema={validateInput}
         onSubmit={(values) => {
           Object.assign(USER_VALUES, values);
-          // console.log(USER_VALUES)
-          console.log(values);
         }}
       >
         {({ formik, values, setFieldValue }) => (
           <div>
             <div className={`${style.flex_design}`}>
+
               <Form>
+                
                 <div className={`${style.text_design}`}>SignUp</div>
                 <div className={`${style.image_button}`}>
                   <input
@@ -97,7 +96,6 @@ class InputForm extends React.Component {
                     <button type="button"
                       onClick={() => {
                         this.myRef.current.click();
-                        // console.log(this.myRef);
                       }}
                     >
                       Photo +
@@ -162,6 +160,7 @@ class InputForm extends React.Component {
                   <ErrorMessage name="confirmPassword" />
                 </div>
 
+                  {/* Submit and reset button */}
                 <div className={`${style.button_design}`}>
                   <button className={`${style.submit}`} type="submit">
                     Submit
@@ -170,10 +169,13 @@ class InputForm extends React.Component {
                     Reset
                   </button>
                 </div>
+
               </Form>
+
               <div className={`${style.image_design}`}>
                 <img src={signup} title="Image" alt="image not loaded"></img>
               </div>
+
             </div>
           </div>
         )}
