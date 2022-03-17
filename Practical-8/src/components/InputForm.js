@@ -4,6 +4,7 @@ import signup from "../images/signup.png";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 const USER_VALUES = {
   name: "",
@@ -11,7 +12,7 @@ const USER_VALUES = {
   phone: "",
   password: "",
   confirmPassword: "",
-  file: ""
+  file: "",
 };
 
 class InputForm extends React.Component {
@@ -19,7 +20,13 @@ class InputForm extends React.Component {
     super(props);
     this.myRef = React.createRef(null);
   }
+
   render() {
+    // let navigate = useNavigate();
+    // const routeChange = () => {
+    //   let path = "/home";
+    //   navigate(path);
+    // };
     //created validation object
     const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/png"];
     const validateInput = Yup.object({
@@ -40,20 +47,20 @@ class InputForm extends React.Component {
         .oneOf([Yup.ref("password"), null], "password not matching")
         .max(15, "Password does not match with above entered password")
         .required("Required"),
-      file: Yup
-          .mixed()
-          .nullable()
-          .required()
-          .test(
-            "FILE_SIZE",
-            "Image size too big.",
-            (value) => !value || (value && value.size <= 200000000)
-          )
-          .test(
-            "FILE_FORMAT",
-            "File type not supported.",
-            (value) => !value || (value && SUPPORTED_FORMATS.includes(value?.type))
-          ),
+      file: Yup.mixed()
+        .nullable()
+        .required()
+        .test(
+          "FILE_SIZE",
+          "Image size too big.",
+          (values) => !values || (values && values.size <= 200000000)
+        )
+        .test(
+          "FILE_FORMAT",
+          "File type not supported.",
+          (values) =>
+            !values || (values && SUPPORTED_FORMATS.includes(values?.type))
+        ),
     });
 
     return (
@@ -68,17 +75,19 @@ class InputForm extends React.Component {
           file: "",
         }}
         validationSchema={validateInput}
-        onSubmit={(values) => {
+        onSubmit={(values, {resetForm}) => {
           Object.assign(USER_VALUES, values);
+          console.log(USER_VALUES);
+          resetForm();
         }}
       >
         {({ formik, values, setFieldValue }) => (
           <div>
             <div className={`${style.flex_design}`}>
-
               <Form>
-                
                 <div className={`${style.text_design}`}>SignUp</div>
+
+                {/* Image upload starts*/}
                 <div className={`${style.image_button}`}>
                   <input
                     ref={this.myRef}
@@ -89,11 +98,10 @@ class InputForm extends React.Component {
                       setFieldValue("file", event.target.files[0]);
                     }}
                   ></input>
-                  <div className={`${style.error_design}`}>
-                  <ErrorMessage name="file" />
-                </div>
                   <center>
-                    <button type="button"
+                    <button
+                      type="button"
+                      htmlFor="file"
                       onClick={() => {
                         this.myRef.current.click();
                       }}
@@ -101,7 +109,11 @@ class InputForm extends React.Component {
                       Photo +
                     </button>
                   </center>
+                  <div className={`${style.error_design}`}>
+                    <ErrorMessage name="file" />
+                  </div>
                 </div>
+                {/* Image upload section ends */}
 
                 {/* Name: */}
                 <label htmlFor="name" className={`${style.label_design}`}>
@@ -160,22 +172,25 @@ class InputForm extends React.Component {
                   <ErrorMessage name="confirmPassword" />
                 </div>
 
-                  {/* Submit and reset button */}
+                {/* Submit and reset button */}
                 <div className={`${style.button_design}`}>
-                  <button className={`${style.submit}`} type="submit">
+                  <button
+                  component = {Link} to="/home"
+                    className={`${style.submit}`}
+                    type="submit"
+                    // onClick={routeChange}
+                  >
                     Submit
                   </button>
-                  <button type="reset" className={`${style.reset}`}>
+                  <button type="reset" className={`${style.reset}`} >
                     Reset
                   </button>
                 </div>
-
               </Form>
 
               <div className={`${style.image_design}`}>
                 <img src={signup} title="Image" alt="image not loaded"></img>
               </div>
-
             </div>
           </div>
         )}
