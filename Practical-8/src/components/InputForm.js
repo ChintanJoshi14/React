@@ -197,7 +197,13 @@ class InputForm extends React.Component {
       </Formik>
     );
   }
+
+const mapStateToProps = (state) => ({
+  return 
+})
+
+
 }
 
-export default InputForm;
+export default connect(mapStateToProps, mapDispatchToProps)(InputForm);
 // connect(mapStateToProp, mapDispatchToProp)
