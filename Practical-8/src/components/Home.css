@@ -1,0 +1,28 @@
+.home_flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* gap: 30rem; */
+}
+
+.logout_button {
+
+    background-color: #86B049;
+        margin: 5px 5px;
+        padding: 10px 12px;
+        border-radius: 6px;
+        color: white;
+        border: none;
+        font-size: 14px;
+      
+}
+
+.logout_button:hover {
+    background-color: #759741;
+}
+
+.uploaded_image_format {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}

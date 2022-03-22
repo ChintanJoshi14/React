@@ -4,7 +4,7 @@ import signup from "../images/signup.png";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 const USER_VALUES = {
   name: "",
@@ -19,15 +19,12 @@ class InputForm extends React.Component {
   constructor(props) {
     super(props);
     this.myRef = React.createRef(null);
+    this.state = {
+      isLoggedIn: false,
+    };
   }
 
   render() {
-    // let navigate = useNavigate();
-    // const routeChange = () => {
-    //   let path = "/home";
-    //   navigate(path);
-    // };
-    //created validation object
     const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/png"];
     const validateInput = Yup.object({
       name: Yup.string()
@@ -66,7 +63,6 @@ class InputForm extends React.Component {
     return (
       <Formik
         initialValues={{
-          // image: "",
           name: "",
           email: "",
           phone: "",
@@ -75,10 +71,13 @@ class InputForm extends React.Component {
           file: "",
         }}
         validationSchema={validateInput}
-        onSubmit={(values, {resetForm}) => {
+        onSubmit={(values, { resetForm }) => {
+          const imageBlob = URL.createObjectURL(values.file);
+          values.file = imageBlob;
           Object.assign(USER_VALUES, values);
-          console.log(USER_VALUES);
           resetForm();
+          this.setState({ isLoggedIn: true });
+          this.props.storeData();
         }}
       >
         {({ formik, values, setFieldValue }) => (
@@ -175,17 +174,21 @@ class InputForm extends React.Component {
                 {/* Submit and reset button */}
                 <div className={`${style.button_design}`}>
                   <button
-                  component = {Link} to="/home"
+                    component={Link}
+                    to="/home"
                     className={`${style.submit}`}
                     type="submit"
                     // onClick={routeChange}
                   >
                     Submit
                   </button>
-                  <button type="reset" className={`${style.reset}`} >
+                  <button type="reset" className={`${style.reset}`}>
                     Reset
                   </button>
                 </div>
+                {this.state.isLoggedIn ? (
+                  <Navigate to="/home"></Navigate>
+                ) : null}
               </Form>
 
               <div className={`${style.image_design}`}>
@@ -197,13 +200,12 @@ class InputForm extends React.Component {
       </Formik>
     );
   }
-
-const mapStateToProps = (state) => ({
-  return 
-})
-
-
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(InputForm);
-// connect(mapStateToProp, mapDispatchToProp)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    storeData: () => dispatch({ type: "SAVEDATA", payload: USER_VALUES }),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(InputForm);

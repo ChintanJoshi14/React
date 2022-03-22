@@ -6,23 +6,25 @@ const initialState = {
     phone: '',
     password: '',
     confirmPassword: '',
-    profileImage: ''
+    file: '',
+    // isLoggedIn: ''
 };
 
 const reducer = (state = initialState, action) => {
-    if(action.type === "storeData") {
+    if(action.type === "SAVEDATA") {
+        console.log("From store: ",state);
         return {
             ...state,
-            name: action.payload.name,
-            email: action.payload.email,
-            phone: action.payload.phone,
-            password: action.payload.password,
-            confirmPassword: action.payload.confirmPassword,
-            // name: action.payload.name,
-
-
+            ...action.payload
         }
     }
+    if(action.type === "RESETDATA") {
+        return {
+            ...state,
+            ...initialState
+        }
+    }
+    return state;
 
 }
 
