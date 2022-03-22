@@ -141,6 +141,7 @@ class InputForm extends React.Component {
                 {/* Phone: */}
                 <label htmlFor="phone">PhoneNo</label>
                 <Field
+                placeholder="+91"
                   name="phone"
                   type="digit"
                   className={`${style.textfield_design}`}
